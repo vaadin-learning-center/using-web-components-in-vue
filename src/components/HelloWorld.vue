@@ -1,8 +1,16 @@
 <template>
   <div class="component">
     <div class="form" @keyup.enter="addPerson">
-      <vaadin-text-field label="First Name" v-model="currentPerson.firstName"></vaadin-text-field>
-      <vaadin-text-field label="Last Name" v-model="currentPerson.lastName"></vaadin-text-field>
+      <vaadin-text-field
+        label="First Name"
+        :value="currentPerson.firstName"
+        @input="currentPerson.firstName = $event.target.value"
+      ></vaadin-text-field>
+      <vaadin-text-field
+        label="Last Name"
+        :value="currentPerson.lastName"
+        @input="currentPerson.lastName = $event.target.value"
+      ></vaadin-text-field>
       <vaadin-button @click="addPerson">Add</vaadin-button>
     </div>
     <vaadin-grid :items.prop="people">
