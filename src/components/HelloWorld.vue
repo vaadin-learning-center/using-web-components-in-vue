@@ -25,24 +25,24 @@ import "@vaadin/vaadin-button";
 import "@vaadin/vaadin-grid";
 import "@vaadin/vaadin-text-field";
 
-const getPerson = () => {
-  return {
-    firstName: "",
-    lastName: ""
-  };
-};
+class Person {
+  constructor() {
+    this.firstName = "";
+    this.lastName = "";
+  }
+}
 export default {
   name: "HelloWorld",
   data: function() {
     return {
-      people: [{ firstName: "foo", lastName: "bars" }],
-      currentPerson: getPerson()
+      people: [],
+      currentPerson: new Person()
     };
   },
   methods: {
     addPerson: function() {
       this.people = [...this.people, this.currentPerson];
-      this.currentPerson = getPerson();
+      this.currentPerson = new Person();
     }
   }
 };
